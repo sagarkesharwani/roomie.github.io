@@ -80,14 +80,14 @@ Session_start();
                                         <div class="row">
                                             <div class="col-md-6 mb-2">
                                                 <div class="form-outline">
-                                                    <input type="text" id="form3Example1m"
+                                                    <input type="text" name="first" id="form3Example1m"
                                                         class="form-control form-control-lg" />
                                                     <label class="form-label" for="form3Example1m">First name</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-2">
                                                 <div class="form-outline">
-                                                    <input type="text" id="form3Example1n"
+                                                    <input type="text" name="last" id="form3Example1n"
                                                         class="form-control form-control-lg" />
                                                     <label class="form-label" for="form3Example1n">Last name</label>
                                                 </div>

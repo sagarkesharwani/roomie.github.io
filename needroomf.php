@@ -123,175 +123,171 @@ include 'dbconn.php';
             </nav>
         </div>
     </section>
-    <section>
 
-        <div class="container ">
-            <!-- <h2>Bootstrap Horizontal Card</h2> -->
-            <hr />
-            <div class="row m-2">
-                <?php
-                $sql = "Select * from registerdetails right JOIN room_details ON registerdetails.id = room_details.room_id ";
-                include 'dbconn.php';
-                // $query = "SELECT * FROM room_details ORDER BY id ASC ";
-                $result = mysqli_query($con, $sql);
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_array($result)) {
-                ?>
-                <div class="card col-lg-5 mx-3 " style="width:550px;height:180px ;border-radius: 0.5rem;">
-                    <form method="post" action="food.php?action=add&id=<?php echo $row["registerdetails.id"]; ?>">
-                        <div class="row no-gutters">
-                            <div class="col-sm-4">
-                                <img class="img-fluid hover-zoom" alert(hello) data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop"
-                                    src="./upload/profile/<?php echo $row["profile_photo"];
+    <div class="container img-fluid">
+        <!-- <h2>Bootstrap Horizontal Card</h2> -->
+
+        <?php
+        $sql = "Select * from registerdetails right JOIN room_details ON registerdetails.id = room_details.room_id ";
+        include 'dbconn.php';
+        // $query = "SELECT * FROM room_details ORDER BY id ASC ";
+        $result = mysqli_query($con, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_array($result)) {
+        ?>
+        <div class="row m-2">
+            <div class="card col-lg-5 mx-3 " style="width:550px;height:180px ;border-radius: 0.5rem;">
+                <form method="post" action="food.php?action=add&id=<?php echo $row["registerdetails.id"]; ?>">
+                    <div class="row no-gutters">
+                        <div class="col-sm-4">
+                            <img class="img-fluid hover-zoom my-1" alert(hello) data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop"
+                                src="./upload/profile/<?php echo $row["profile_photo"];
                                                                                                                                                                         ?>"
-                                    alt=" Suresh Dasari Card">
-                                <div class="col my-1 mx-4">
-                                    <a href="view.php?edit=<?php echo $row["id"]; ?>">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-8">
-                                <div class="card-body">
-
-
-                                    <h5 class="card-title mx-2" style="font-size:large;">
-                                        <?php echo $row["username"]; ?>
-                                    </h5>
-
-                                    <p style=" font-size: x-small;margin-top: -10px;" class="pt-0">
-                                        <i class="fas fa-map-marker-alt" style="width: 15px;
-    font-size: medium;"></i>
-                                        <?php echo $row["address"]; ?>
-                                    </p>
-
-
-                                    <div class="row mx-1">
-                                        <table style="width:100%" style="margin-top: -8px">
-                                            <tr>
-                                                <td class="text-center" style="font-size:x-small;font-weight :500;">Rent
-                                                </td>
-                                                <td class="text-center" style="font-size:x-small;font-weight:500;">
-                                                    Notice Period</td>
-                                                <td class="text-center" style="font-size:x-small;font-weight:500;">
-                                                    Looking for</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center" style="font-size:small">
-                                                    <?php echo $row["monthly_rent"]; ?>
-                                                </td>
-                                                <td style="font-size:x-small" class="text-center">
-
-
-                                                    <?php echo $row["notice_period"]; ?> Months
-
-                                                </td>
-                                                <td style="font-size:small" class="text-center">
-                                                    <?php echo $row["looking_for"]; ?></td>
-                                            </tr>
-                                            <!-- <div class="hr">-</div> -->
-                                            <hr>
-                                            <tr>
-                                                <td class="text-center" style="font-size:x-small;font-weight :500;">
-                                                    Deposit</td>
-                                                <td class="text-center" style="font-size:x-small;font-weight:500;">Mail
-                                                </td>
-                                                <td class="text-center" style="font-size:x-small;font-weight:500;">Call
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center" style="font-size:small">
-                                                    <?php echo $row["deposit"]; ?>
-
-                                                </td>
-                                                <td style="font-size:small" class="text-center">
-                                                    <!-- -->
-
-                                                    <a href="mailto:<?php echo $row["emailid"]; ?>  "><i
-                                                            class="fas fa-envelope"></i></a>
-                                                </td>
-                                                <td style="font-size:small" class="text-center">
-                                                    <a href="tel:+91:<?php echo $row["mobileno"]; ?>  "><i
-                                                            class="fas fa-phone"></i></a>
-
-                                            </tr>
-
-                                        </table>
-                                    </div>
-
-
-                                </div>
+                                alt=" Suresh Dasari Card">
+                            <div class="col my-1 mx-4">
+                                <a href="view.php?edit=<?php echo $row["id"]; ?>">
+                                    <i class="fas fa-eye"></i>
+                                </a>
                             </div>
                         </div>
-                </div>
 
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Post a Room
+                        <div class="col-sm-8">
+                            <div class="card-body">
+
+
+                                <h5 class="card-title mx-2" style="font-size:large;">
+                                    <?php echo $row["username"]; ?>
                                 </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body rounded" style="background-color: #f9fff9;">
-                                <form action="haveroomb.php" method="POST" enctype="multipart/form-data">
-                                    <div class="container">
-                                        <!-- Gallery -->
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                    class="w-100 shadow-1-strong rounded mb-4"
-                                                    alt="Boat on Calm Water" />
 
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
-                                                    class="w-100 shadow-1-strong rounded mb-4"
-                                                    alt="Wintry Mountain Landscape" />
-                                            </div>
+                                <p style=" font-size: x-small;margin-top: -10px;" class="pt-0">
+                                    <i class="fas fa-map-marker-alt" style="width: 15px;
+    font-size: medium;"></i>
+                                    <?php echo $row["address"]; ?>
+                                </p>
 
-                                            <div class="col-lg-4 mb-4 mb-lg-0">
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                                                    class="w-100 shadow-1-strong rounded mb-4"
-                                                    alt="Mountains in the Clouds" />
 
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                                                    class="w-100 shadow-1-strong rounded mb-4"
-                                                    alt="Boat on Calm Water" />
-                                            </div>
+                                <div class="row mx-1">
+                                    <table style="width:100%" style="margin-top: -8px">
+                                        <tr>
+                                            <td class="text-center" style="font-size:x-small;font-weight :500;">Rent
+                                            </td>
+                                            <td class="text-center" style="font-size:x-small;font-weight:500;">
+                                                Notice Period</td>
+                                            <td class="text-center" style="font-size:x-small;font-weight:500;">
+                                                Looking for</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center" style="font-size:small">
+                                                <?php echo $row["monthly_rent"]; ?>
+                                            </td>
+                                            <td style="font-size:x-small" class="text-center">
 
-                                            <div class="col-lg-4 mb-4 mb-lg-0">
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
-                                                    class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
 
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
-                                                    class="w-100 shadow-1-strong rounded mb-4"
-                                                    alt="Yosemite National Park" />
-                                            </div>
-                                        </div>
-                                        <!-- Gallery -->
-                                    </div>
-                                </form>
+                                                <?php echo $row["notice_period"]; ?> Months
+
+                                            </td>
+                                            <td style="font-size:small" class="text-center">
+                                                <?php echo $row["looking_for"]; ?></td>
+                                        </tr>
+                                        <!-- <div class="hr">-</div> -->
+                                        <hr>
+                                        <tr class="my-3">
+                                            <td class="text-center" style="font-size:x-small;font-weight :500;">
+                                                Deposit</td>
+                                            <td class="text-center" style="font-size:x-small;font-weight:500;">Mail
+                                            </td>
+                                            <td class="text-center" style="font-size:x-small;font-weight:500;">Call
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center" style="font-size:small">
+                                                <?php echo $row["deposit"]; ?>
+
+                                            </td>
+                                            <td style="font-size:small" class="text-center">
+                                                <!-- -->
+
+                                                <a href="mailto:<?php echo $row["emailid"]; ?>  "><i
+                                                        class="fas fa-envelope"></i></a>
+                                            </td>
+                                            <td style="font-size:small" class="text-center">
+                                                <a href="tel:+91:<?php echo $row["mobileno"]; ?>  "><i
+                                                        class="fas fa-phone"></i></a>
+
+                                        </tr>
+
+                                    </table>
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
-                </div>
-
-                </form>
             </div>
-            <?php
-                    }
-                }
-    ?>
+
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Post a Room
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body rounded" style="background-color: #f9fff9;">
+                            <form action="haveroomb.php" method="POST" enctype="multipart/form-data">
+                                <div class="container">
+                                    <!-- Gallery -->
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+
+                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
+                                                class="w-100 shadow-1-strong rounded mb-4"
+                                                alt="Wintry Mountain Landscape" />
+                                        </div>
+
+                                        <div class="col-lg-4 mb-4 mb-lg-0">
+                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+                                                class="w-100 shadow-1-strong rounded mb-4"
+                                                alt="Mountains in the Clouds" />
+
+                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                                                class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+                                        </div>
+
+                                        <div class="col-lg-4 mb-4 mb-lg-0">
+                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
+                                                class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
+
+                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
+                                                class="w-100 shadow-1-strong rounded mb-4"
+                                                alt="Yosemite National Park" />
+                                        </div>
+                                    </div>
+                                    <!-- Gallery -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </form>
         </div>
+        <?php
+            }
+        }
+        ?>
+    </div>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
-    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
 </body>
 
 </html>

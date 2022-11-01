@@ -83,6 +83,11 @@ if (!isset($_SESSION["username"])) {
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link bg-light text-primary" style="border-radius: 7px;"
+                        href="proffile.php">profile</a>
+                </li>
                 <!-- 
                 <li class="nav-item active">
                     <a class="nav-link" href="Triggers.php">SYSTEM LOGS <span class="sr-only">(current)</span></a>
@@ -91,10 +96,9 @@ if (!isset($_SESSION["username"])) {
                 <li class="nav-item active">
                     <a class="nav-link" href="Admin_page.php">ADMIN <span class="sr-only">(current)</span></a>
                 </li> -->
-                <li class="nav-item">
+                <li class="nav-item mx-3">
                     <a class="nav-link bg-light text-primary" style="border-radius: 7px;" href="logout.php">LOGOUT</a>
                 </li>
-
 
             </ul>
 
